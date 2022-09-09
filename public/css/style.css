@@ -177,7 +177,7 @@ label {
 }
 
 .conatiner_of_list_of_transactions ul {
-    max-height: 500px;
+    max-height: 800px;
     overflow-y: auto;
 }
 
