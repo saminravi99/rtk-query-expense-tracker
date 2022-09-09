@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.a81714f4.css","mappings":"AAAA,4BAEI,kBAAmB,CADnB,YAAa,CAEb,4BAEJ","sources":["pages/Transactions/AllTransactions.css"],"sourcesContent":[".all-transactions-container{\n    display: flex;\n    align-items: center;\n    justify-content: space-around;\n    /* height: 81vh; */\n}"],"names":[],"sourceRoot":""}
