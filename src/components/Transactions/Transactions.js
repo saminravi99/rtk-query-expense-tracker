@@ -64,6 +64,7 @@ export default function Transactions() {
       <button
         onClick={() => {
           navigate("/all-transactions");
+          window.scrollTo(0, 0);
         }}
         className="btn"
       >
