@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL:
-    "https://redux-toolkit-expense-tracker-saminravi99.onrender.com/transactions",
+    "https://redux-toolkit-expense-tracker-saminravi99.onrender.com",
 });
 
 export default axiosInstance;
