@@ -10,7 +10,7 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     typeSelected: (state, action) => {
-      state.tags.push(action.payload);
+      state.type = action.payload;
     },
     typeRemoved: (state, action) => {
       state.type = "";

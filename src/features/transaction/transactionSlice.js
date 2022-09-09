@@ -3,6 +3,7 @@ import {
   addTransaction,
   deleteTransaction,
   editTransaction,
+  getAllTransactions,
   getLatestTransactions,
   getTransactions,
 } from "./transactionAPI";
@@ -10,6 +11,7 @@ import {
 const initialState = {
   transactions: [],
   latestTransactions: [],
+  allTransactions: [],
   isLoading: false,
   isError: false,
   error: "",
@@ -17,6 +19,15 @@ const initialState = {
 };
 
 // async thunks
+
+export const fetchAllTransactions = createAsyncThunk(
+  "transaction/fetchAllTransactions",
+  async () => {
+    const transactions = await getAllTransactions();
+    return transactions;
+  }
+);
+
 export const fetchTransactions = createAsyncThunk(
   "transaction/fetchTransactions",
   async ({ type, search, pageNumber }) => {
@@ -151,6 +162,21 @@ const transactionSlice = createSlice({
         state.isError = true;
         state.error = action.error?.message;
         state.latestTransactions = [];
+      })
+        .addCase(fetchAllTransactions.pending, (state) => {
+        state.isError = false;
+        state.isLoading = true;
+      })
+        .addCase(fetchAllTransactions.fulfilled, (state, action) => {
+        state.isError = false;
+        state.isLoading = false;
+        state.allTransactions = action.payload;
+      })
+        .addCase(fetchAllTransactions.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.error = action.error?.message;
+        state.allTransactions = [];
       });
   },
 });

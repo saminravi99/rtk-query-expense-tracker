@@ -13,8 +13,8 @@ const initialState = {
 // async function to set pagination
 export const fetchTransactionsForPagination = createAsyncThunk(
   "pagination/fetchTransactions",
-  async ({ filter, search }) => {
-    const transactions = await getTransactionsForPagination( filter, search );
+  async ({ type, search }) => {
+    const transactions = await getTransactionsForPagination( type, search );
     return transactions;
   }
 );

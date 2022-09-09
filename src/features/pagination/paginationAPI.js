@@ -8,8 +8,12 @@ export const getTransactionsForPagination = async (type, search) => {
   }
 
 
-  if (search !== "") {
+  if (search !== "" && type) {
     queryString += `&q=${search}`;
+  }
+
+  if (search !== "" && !type) {
+    queryString += `q=${search}`;
   }
 
   const response = await axios.get(`/transactions?${queryString}`);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPageNumber } from "../../features/pagination/paginationSlice";
+import { setPageNumber } from "../features/pagination/paginationSlice";
 
 export default function Pagination() {
   //redux hooks

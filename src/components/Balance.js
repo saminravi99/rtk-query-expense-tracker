@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import numberWithCommas from "../utils/numberWithCommas";
 
 export default function Balance() {
-    const { transactions } = useSelector((state) => state.transaction);
+    const { allTransactions } = useSelector((state) => state.transaction);
 
     const calculateIncome = (transactions) => {
         let income = 0;
@@ -23,9 +23,9 @@ export default function Balance() {
             <p>Your Current Balance</p>
             <h3>
                 <span>৳</span>{" "}
-                {transactions?.length > 0 ? (
+                {allTransactions?.length > 0 ? (
                     <span>
-                        {numberWithCommas(calculateIncome(transactions))}
+                        {numberWithCommas(calculateIncome(allTransactions))}
                     </span>
                 ) : (
                     0
