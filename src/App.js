@@ -4,7 +4,7 @@ import AllTransactions from "./pages/Transactions/AllTransactions";
 
 function App() {
   return (
-    <div>
+    <div >
       <div className="header">
         <h1>Expense Tracker</h1>
       </div>

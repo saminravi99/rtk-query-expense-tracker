@@ -1,7 +1,7 @@
 import axios from "../../utils/axios";
 
-export const getTransactions = async () => {
-    const response = await axios.get("/transactions");
+export const getTransactions = async (type, search, pageNumber) => {
+    const response = await axios.get(`/transactions?_page=${pageNumber}&_limit=10&_sort=id&_order=desc`);
 
     return response.data;
 };

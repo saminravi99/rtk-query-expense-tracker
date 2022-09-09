@@ -82,13 +82,13 @@ input {
     outline: none;
     cursor: pointer;
     padding: 10px;
-    background-color: #4338ca;
+    background-color: #4338ca !important;
     color: white;
     transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #094d3d;
+    background-color: #094d3d !important;
 }
 
 ul {

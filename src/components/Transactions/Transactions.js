@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import { fetchTransactionsForPagination } from "../../features/pagination/paginationSlice";
 import { fetchLatestTransactions, fetchTransactions } from "../../features/transaction/transactionSlice";
 import Transaction from "./Transaction";
 
@@ -13,10 +14,14 @@ export default function Transactions() {
         (state) => state.transaction
     );
 
+    const { type, search } = useSelector((state) => state.filter);
+    const { pageNumber } = useSelector((state) => state.pagination);
+
     useEffect(() => {
-        dispatch(fetchTransactions());
+        dispatch(fetchTransactions({type, search, pageNumber}));
         dispatch(fetchLatestTransactions());
-    }, [dispatch, editing]);
+         dispatch(fetchTransactionsForPagination({ type, search }));
+    }, [dispatch, editing, type, search, pageNumber, transactions.length]);
 
     // decide what to render
     let content = null;
